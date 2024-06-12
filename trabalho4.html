@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachorro Feliz e Triste</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #cachorro {
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <img id="cachorro" src="https://i.imgur.com/w2JqGFy.jpg" alt="Cachorro Feliz">
+
+    <script>
+        const cachorro = document.getElementById('cachorro');
+        
+        cachorro.addEventListener('mouseover', () => {
+            cachorro.src = 'https://media.discordapp.net/attachments/633519682389016617/1245405077527859200/como-saber-se-o-cachorro-esta-triste.png?ex=666a6d9c&is=66691c1c&hm=705a403ebdce57717a73ca6b39519fbe63693335c5d3d300ae8b0daf2408e13c&=&format=webp&quality=lossless&width=525&height=350'; // Imagem de cachorro triste
+        });
+
+        cachorro.addEventListener('mouseout', () => {
+            cachorro.src = 'https://media.discordapp.net/attachments/633519682389016617/1245405112872992778/9k.png?ex=666a6da5&is=66691c25&hm=0683f781ba5b7187cd889ab0aa546b2e8fd275a2cbdfef232687ba650ad51efd&=&format=webp&quality=lossless'; // Imagem de cachorro feliz
+        });
+    </script>
+</body>
+</html>

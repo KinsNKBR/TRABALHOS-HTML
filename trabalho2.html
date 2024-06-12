@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Fugitivo</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #botao {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="botao">Clique-me se puder!</button>
+
+    <script>
+        const botao = document.getElementById('botao');
+        botao.addEventListener('mouseover', () => {
+            const bodyRect = document.body.getBoundingClientRect();
+            const botaoRect = botao.getBoundingClientRect();
+            const offset = 50; // Distância para onde o botão se moverá
+
+            let newTop = botaoRect.top + (Math.random() > 0.5 ? offset : -offset);
+            let newLeft = botaoRect.left + (Math.random() > 0.5 ? offset : -offset);
+
+            // Assegurar que o botão permaneça visível dentro da janela
+            if (newTop < 0) newTop = 0;
+            if (newLeft < 0) newLeft = 0;
+            if (newTop + botaoRect.height > bodyRect.height) newTop = bodyRect.height - botaoRect.height;
+            if (newLeft + botaoRect.width > bodyRect.width) newLeft = bodyRect.width - botaoRect.width;
+
+            botao.style.position = 'absolute';
+            botao.style.top = `${newTop}px`;
+            botao.style.left = `${newLeft}px`;
+        });
+    </script>
+</body>
+</html>
